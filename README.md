@@ -20,6 +20,24 @@ This project is a replica of the Airbnb platform built using **MongoDB, Express.
 
 ---
 
+## Routes
+
+- **GET**: /listings -> all listings
+- ** **
+
+---
+
+## Code Structure
+
+- [**/init**](./init): randomly generated sample data to initialize the database
+- [**/models**](./models): definitions for all the schemas used
+- [**/views**](./views): static files (all EJS files used)
+- [**/views/includes**](./views/includes): header and footer files
+- [**/public**](./public): CSS, additional JS etc.
+
+
+---
+
 ## Installation
 
 1. Clone the repository:
