@@ -1,0 +1,45 @@
+<%- layout("/layouts/boilerplate") %>
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 class="mb-3 mt-3">Edit Your Listing</h3>
+            <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="listing[title]" value="<%= listing.title %>" placeholder="add a catchy title">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" placeholder="describe your listing in detail"><%= listing.description %></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" name="listing[image]" class="form-control" value="<%= listing.image %>" placeholder="paste an image URL">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" class="form-control" value="<%= listing.price %>" placeholder="set a price per night (in INR)">
+                    </div>
+                    
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" class="form-control" value="<%= listing.country %>" placeholder="e.g. India">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" class="form-control" value="<%= listing.location %>" placeholder="add a specific location for your listing">
+                </div>
+
+                <button class="btn btn-dark mb-3 add-btn">Submit Changes</button>
+            </form>
+        </div>
+    </div>
+</body>
