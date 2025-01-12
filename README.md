@@ -1,6 +1,6 @@
 # WanderLust App
 
-This project is a replica of the Airbnb platform built using the **MongoDB, Express.JS and Node.JS** along with BootStrap-CSS. The goal is to simulate the core features of Airbnb, allowing users to browse listings, book stays, and manage profiles.
+This project is a replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**. The goal is to simulate the core features of Airbnb, allowing users to browse listings, book stays, and manage profiles.
 
 ---
 
