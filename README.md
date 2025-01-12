@@ -17,13 +17,17 @@ This project is a replica of the Airbnb platform built using **MongoDB, Express.
 - **Backend**: Node.js and Express.js
 - **Database**: MongoDB
 - **Authentication**: 
+- Icons from FontAwesome
 
 ---
 
 ## Routes
 
-- **GET**: /listings -> all listings
-- ** **
+- **/listings**         : GET         -> all listings
+- **/listings/:id**     : GET         -> show specific listing
+- **/listings/new**     : GET & POST  -> add new listing
+- **/listings/:id/edit**: GET & PUT   -> edit existing listing
+- **/listings/:id**     : DELETE      -> delete existing listing
 
 ---
 
@@ -33,6 +37,8 @@ This project is a replica of the Airbnb platform built using **MongoDB, Express.
 - [**/models**](./models): definitions for all the schemas used
 - [**/views**](./views): static files (all EJS files used)
 - [**/views/includes**](./views/includes): header and footer files
+- [**/views/layouts**](./views/layouts): EJS-mate files
+- [**/views/listings**](./views/listings): static files for all listings
 - [**/public**](./public): CSS, additional JS etc.
 
 
