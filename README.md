@@ -59,3 +59,5 @@ A replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**
 - icons from [Font Awesome](https://fontawesome.com/)
 - listing images from [Unsplash](https://unsplash.com/)
 - fonts from [Google Fonts](https://fonts.google.com/)
+
+---
