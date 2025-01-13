@@ -34,12 +34,10 @@ A replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**
 - [**/init**](./init): randomly generated sample data to initialize the database
 - [**/models**](./models): definitions for all the schemas used
 - [**/views**](./views): static files (all EJS files used)
--- [**/views/includes**](./views/includes): header and footer files
--- [**/views/layouts**](./views/layouts): EJS-mate files
--- [**/views/listings**](./views/listings): static files for all listings
+- [**/views/includes**](./views/includes): header and footer files
+- [**/views/layouts**](./views/layouts): EJS-mate files
+- [**/views/listings**](./views/listings): static files for all listings
 - [**/public**](./public): CSS, additional JS etc.
-
----
 
 ## Future Features
 - User Database and Authentication
