@@ -39,6 +39,8 @@ A replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**
   - [**/views/listings**](./views/listings): static files for all listings
 - [**/public**](./public): CSS, additional JS etc.
 
+---
+
 ## Future Features
 - User Database and Authentication
 - Payment gateway integration
