@@ -21,7 +21,7 @@ A replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**
   - View and manage listings in a centralized dashboard
   - Manage hosted properties for users with hosting privileges
 - **Responsive Design with Modern UI/UX**:
-  - Clean, intuitive interface optimized for desktop browsers
+  - Clean, intuitive interface optimized for both desktop and phone
 - **Database Integration**:
   - Persistent storage of user data, property listings, and booking details
   - Storage and retrieval of user reviews and ratings

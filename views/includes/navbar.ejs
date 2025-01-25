@@ -1,64 +1,122 @@
 <style>
-  .search-icon{
+  .search-icon {
     display: inline;
     margin-right: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .navbar .dropdown-menu {
+      position: static;
+      float: none;
+    }
+    .dropdown-menu {
+      width: 100%;
+    }
+    .searchbar {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    .search-tool {
+      width: 100%;
+    }
+    .add-btn {
+      width: 100%;
+      text-align: center;
+    }
+    .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+    }
+    .profile-box{
+      margin-bottom: 1rem;
+    }
   }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div style="background-color: white;"  class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass navbar-logo"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass navbar-logo"></i>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="searchbar navbar-nav ms-auto me-2">
-          <form style="background-color: white;" class="d-flex" role="search" action="/listings" method="GET">
-            <input class="search search-tool form-control me-2" name="search" type="search" placeholder="Search Destinations">
-            <button class="search search-tool btn btn-dark add-btn" type="submit"><i class="fa-solid search-icon fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
-        
-        <div style="background-color: white;"  class="mb-2 navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Add a new Listing</a>
-          <% if(!currUser) { %>
-          <a class="nav-link"  href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-          <% } %>
-          <% if(currUser) { %>
-            <div class="dropdown">
-              <a style="border-radius: 25px;" class="btn btn-secondary dropdown-toggle add-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=currUser.username%></a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="/listings/user/<%=currUser._id%>">My Account</a></li>
-                <li><a class="dropdown-item" href="/logout"><b style="color: #FE424D;">Logout</b></a></li>
-              </ul>
-            </div>
-          <% } %>
-        </div>
+    <div class="collapse navbar-collapse" style="background-color: white;" id="navbarNavAltMarkup">
+      <!-- Search Bar -->
+      <div class="searchbar navbar-nav ms-auto me-2">
+        <form class="d-flex" role="search" action="/listings" method="GET">
+          <input
+            class="search search-tool form-control me-2"
+            name="search"
+            type="search"
+            placeholder="Search Destinations"
+          />
+          <button
+            class="search search-tool btn btn-dark add-btn"
+            type="submit"
+          >
+            <i class="fa-solid search-icon fa-magnifying-glass"></i>Search
+          </button>
+        </form>
+      </div>
 
+      <!-- Navigation Links -->
+      <div class="navbar-nav profile-box ms-auto">
+        <a class="nav-link" href="/listings/new">Add a new Listing</a>
+        <% if (!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+        <% if (currUser) { %>
+        <div class="dropdown">
+          <a
+            class="btn btn-secondary dropdown-toggle add-btn"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= currUser.username %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item" href="/listings/user/<%= currUser._id %>"
+                >My Account</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/logout">
+                <b style="color: #FE424D;">Logout</b>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <% } %>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
 
 
-  <style>
-    /* Make the nested dropdown show on hover */
-.hover-dropdown:hover .dropdown-menu {
-  display: block;
+<style>
+  .hover-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+  .dropdown-item {
+    cursor: pointer;
 }
-
-/* Hide the dropdown by default */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-}
-
-/* Adjust the positioning if needed */
-.dropdown-item {
-  cursor: pointer;
-}
-
-  </style>
+</style>
