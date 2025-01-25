@@ -1,0 +1,140 @@
+body {
+  font-family: "Plus Jakarta Sans", serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/* navbar */
+.navbar {
+    background-color: white;
+    height: 5rem;
+}
+.navbar-logo {
+    color: #fe424d;
+    font-size: 2rem;
+    transition: transform 0.5s ease-in-out;
+}
+.navbar-logo:hover {
+    transform: rotate(360deg);
+}
+.nav-link {
+    color: #222222 !important;
+}
+.search-tool {
+    border-radius: 25px !important;
+}
+
+/* footer */
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+.f-info-brand, .f-info-links, .f-info-socials{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info {
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body {
+    padding: 0 !important;
+}
+.card-text p {
+    font-weight: 400 !important;
+}
+.listing-link {
+    text-decoration: none;
+}
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* new page */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+.add-btn:hover {
+    background-color: #db2c38 !important;
+}
+
+.add-btn:active {
+    background-color: #6b1b20 !important;
+}
+
+/* show page */
+.show-img {
+    height: 30vh;
+}
+
+.navbar-collapse .dropdown-menu {
+    background-color: white !important;
+}
+
+/* filters */
+.filterchoose-form-check-input {
+    display: none;
+}
+.filterchoose-form-check-input:checked + .filterchoose-form-check-label {
+    background-color: #bdbdbd;
+}
+
+.filterchoose-form-check-label {
+    background-color: #F8F9FA;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.filterchoose-form-check-label:hover {
+    background-color: #E9ECEF;
+}
+
+.filterchoose-filter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}

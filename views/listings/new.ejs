@@ -1,0 +1,97 @@
+<%-layout("/layouts/boilerplate")%>
+<style>
+    .searchbar, .filterdropdown{
+        display: none;
+    }
+</style>
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="mb-3 mt-3">Create a New Listing</h3>
+        <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="listing[title]" placeholder="add a catchy title" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Title cannot be empty!
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" class="form-control" placeholder="describe your listing in detail" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Description cannot be empty!
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" name="listing[image]" class="form-control" required>
+
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input name="listing[price]" class="form-control" placeholder="per night (in INR)" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Price cannot be empty!
+                    </div>
+                </div>
+                
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" class="form-control" placeholder="e.g. India" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Country cannot be empty!
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="listing[location]" class="form-control" placeholder="add a specific location for your listing" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Location cannot be empty!
+                </div>
+            </div>
+
+            <div class="mb-3 filterchoose-outer">
+                Filters
+                <div class="filters-container filterchoose-filter-container">
+                    <% for (const key in filterTag) { %>
+                        <div class="filter-item filterchoose-filter-item">
+                            <input class="form-check-input filterchoose-form-check-input" name="listing[filter][]" type="checkbox" value="<%= key %>" id="flexCheck<%= key %>">
+                            <label class="form-check-label filterchoose-form-check-label" for="flexCheck<%= key %>">
+                                <i class="<%= filterTag[key].icon %> filter-icon"></i>
+                                <span class="filter-text"><%= filterTag[key].tag %></span>
+                            </label>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+                    
+
+            <button class="btn btn-dark mb-3 add-btn">Add Listing</button>
+        </form>
+    </div>
+</div>

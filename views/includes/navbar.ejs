@@ -1,0 +1,64 @@
+<style>
+  .search-icon{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div style="background-color: white;"  class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass navbar-logo"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="searchbar navbar-nav ms-auto me-2">
+          <form style="background-color: white;" class="d-flex" role="search" action="/listings" method="GET">
+            <input class="search search-tool form-control me-2" name="search" type="search" placeholder="Search Destinations">
+            <button class="search search-tool btn btn-dark add-btn" type="submit"><i class="fa-solid search-icon fa-magnifying-glass"></i>Search</button>
+          </form>
+        </div>
+        
+        <div style="background-color: white;"  class="mb-2 navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Add a new Listing</a>
+          <% if(!currUser) { %>
+          <a class="nav-link"  href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <% } %>
+          <% if(currUser) { %>
+            <div class="dropdown">
+              <a style="border-radius: 25px;" class="btn btn-secondary dropdown-toggle add-btn" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%=currUser.username%></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/listings/user/<%=currUser._id%>">My Account</a></li>
+                <li><a class="dropdown-item" href="/logout"><b style="color: #FE424D;">Logout</b></a></li>
+              </ul>
+            </div>
+          <% } %>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+
+  <style>
+    /* Make the nested dropdown show on hover */
+.hover-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hide the dropdown by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+/* Adjust the positioning if needed */
+.dropdown-item {
+  cursor: pointer;
+}
+
+  </style>

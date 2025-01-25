@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/css/filterbar.css">
+
+<div class="scrollmenu-container">
+
+
+    <div id="scroll-left">
+      <i class="fa-solid fa-angle-left scroll-btn"></i>
+    </div>
+
+    <div class="scrollmenu">
+
+      <a href="/listings">
+        <div style="color: #FE424D;" class="filter <%= typeof allListings !== 'undefined' ? 'filter-active' : '' %>">
+            <div><i class="fa-solid fa-compass"></i></div>
+            <p>All Listings</p>
+        </div>
+      </a>
+
+      <% for(const key in filterTag) { %>
+        <a style="color: black;" href="/listings/filter/tag/<%=key%>">
+          <div class="filter <%= typeof taggedListings !== 'undefined' && key === tag ? 'filter-active' : '' %>">
+              <div><i class="<%= filterTag[key].icon %>"></i></div>
+              <p><%= filterTag[key].tag %></p>
+          </div>
+        </a>
+      <% } %>
+
+    </div>
+
+    <div id="scroll-right">
+      <i class="fa-solid fa-angle-right scroll-btn"></i>
+    </div>
+
+    <div class="tax-toggle">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display Taxes</label>
+        </div>
+    </div>
+</div>
+ 
+
+<script>
+
+// tax toggle
+let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+taxSwitch.addEventListener("click", () => {
+  let taxInfo = document.getElementsByClassName("tax-info");
+  for(info of taxInfo){
+    if(info.style.display != "inline"){
+      info.style.display = "inline";
+    } else {
+      info.style.display = "none";
+    }
+  }
+})
+
+// Scroll right button functionality
+document.getElementById("scroll-right").addEventListener("click", () => {
+  const scrollMenu = document.querySelector(".scrollmenu");
+  const itemWidth = scrollMenu.querySelector(".filter").offsetWidth;
+  scrollMenu.scrollLeft += itemWidth * 2;
+});
+
+// Scroll left button functionality
+document.getElementById("scroll-left").addEventListener("click", () => {
+  const scrollMenu = document.querySelector(".scrollmenu");
+  const itemWidth = scrollMenu.querySelector(".filter").offsetWidth;
+  scrollMenu.scrollLeft -= itemWidth * 2;
+});
+
+</script>
