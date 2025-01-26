@@ -141,7 +141,20 @@ module.exports.my = async (req,res) => {
         req.flash("error", "User does not exist!");
         res.redirect("/listings");
     } else {
-    const myListings = await Listing.find({owner: new mongoose.Types.ObjectId(userId)});
+    const myListings = await Listing.find({owner: new mongoose.Types.ObjectId(userId)}).populate("reviews");
+    // calculate average ratings
+    const listingsWithAverageRating = myListings.map(listing => {
+        if(listing.reviews.length > 0) {
+            const totalRatingSum = listing.reviews.reduce((sum,review)=>{
+                return sum + (typeof review.rating === "number"?review.rating:0);
+            }, 0);
+            const averageRating = (totalRatingSum / listing.reviews.length).toFixed(2);
+            return {...listing.toObject(), averageRating: averageRating || 0};
+        } else {
+            return {...listing.toObject(),averageRating:0};
+        }
+    })
+    // aggregate statistics for all listings
     const userIdObjectId = new mongoose.Types.ObjectId(userId);
     const listingsData = await Listing.aggregate([
         {$match: { owner: userIdObjectId }},
@@ -158,6 +171,6 @@ module.exports.my = async (req,res) => {
         totalRatingSum = listingsData[0].totalRatingSum;
     }
     const averageRating = totalReviews > 0 ? (totalRatingSum / totalReviews).toFixed(2) : 0;
-    res.render("listings/my.ejs", { myListings, owner, totalListings, totalReviews, averageRating });
+    res.render("listings/my.ejs", { myListings: listingsWithAverageRating, owner, totalListings, totalReviews, averageRating });
     }
 };

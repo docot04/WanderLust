@@ -96,11 +96,8 @@
                     <div class="card col-5 ms-3 mt-3 mb-3">
                         <div class=card-body">
                             <h5 class="card-title mt-3"><a href="/listings/user/<%=review.author._id%>">@<%=review.author.username%></a></h5>
-                            <p class="starability-result card-text" data-rating="<%=review.rating%>">
-                              Rated: <%=review.rating%> stars
-                            </p>
+                            <p> <% for(let i=1; i<= review.rating; i++) {%><i style="font-size: 0.8rem; color:#F5BD23;" class="fa-solid fa-star"></i><%}%></p>
                             <p class="card-text mb-3"><%=review.comment%></p>
-
                         </div>
                         <% if(currUser && currUser._id.equals(review.author._id)) { %>
                         <form class="mb-3" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
