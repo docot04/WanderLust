@@ -36,8 +36,8 @@ A replica of the Airbnb platform built using **MongoDB, Express.JS and Node.JS**
 
 ---
 
-## Work in Progress
-- Account Deletion Feature
+## Unimplemented Features
+- Account Deletion
 
 ---
 
